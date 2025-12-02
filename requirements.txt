@@ -1,0 +1,17 @@
+# --- 모델 학습(Fine-tuning)을 위한 라이브러리 ---
+# 💡 중요: torch는 CUDA 버전에 맞춰 별도 설치하는 것을 강력히 권장합니다.
+# PyTorch 공식 홈페이지(https://pytorch.org/get-started/locally/)에서 본인 환경에 맞는 설치 명령어를 확인하세요.
+# 예: pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+torch
+transformers
+datasets
+peft # LoRA/QLoRA와 같은 Parameter-Efficient Fine-Tuning을 위함
+trl # SFTTrainer와 같은 강화학습/지도학습 트레이너를 위함
+bitsandbytes # QLoRA의 4비트 양자화를 위해 필수
+accelerate # 여러 GPU/TPU에서의 학습을 가속화하고 device_map='auto'를 지원
+
+# --- 유틸리티 및 기타 라이브러리 ---
+huggingface_hub # Hugging Face Hub 로그인 및 파일 관리를 위함
+python-dotenv # .env 파일에서 환경변수(API 키 등)를 로드하기 위함
+wandb # (선택사항) 학습 과정을 모니터링하기 위한 Weights & Biases
+pydantic # FastAPI에서 데이터 유효성 검사를 위해 사용

@@ -1,0 +1,48 @@
+{
+  "project_settings": {
+    "project_name": "Qwen3-4B-Deview-Finetune-v3",
+    "base_model_id": "Qwen/Qwen3-4B",
+    "hf_username": "radi04",
+    "dataset_id": "radi04/Deview-Finetune-data-1400",
+    "new_model_name": "Qwen3-4B-Deview-Finetune-v3"
+  },
+  "qlora_settings": {
+    "load_in_4bit": true,
+    "bnb_4bit_quant_type": "nf4",
+    "bnb_4bit_compute_dtype": "bfloat16",
+    "bnb_4bit_use_double_quant": true,
+    "lora_r": 32,
+    "lora_alpha": 64,
+    "lora_dropout": 0.05
+  },
+  "training_settings": {
+    "output_dir_prefix": "./",
+    "num_train_epochs": 3,
+    "per_device_train_batch_size": 2,
+    "gradient_accumulation_steps": 8,
+    "gradient_checkpointing": true,
+    "optim": "paged_adamw_8bit",
+    "learning_rate": 0.0002,
+    "max_grad_norm": 0.3,
+    "warmup_ratio": 0.03,
+    "lr_scheduler_type": "cosine",
+    "logging_strategy": "steps",
+    "logging_steps": 25,
+    "eval_strategy": "steps",
+    "eval_steps": 100,
+    "save_strategy": "steps",
+    "save_steps": 100,
+    "save_total_limit": 3,
+    "load_best_model_at_end": true,
+    "bf16": true,
+    "push_to_hub": true,
+    "hub_strategy": "checkpoint",
+    "report_to": "wandb",
+    "max_seq_length": 2048,
+    "packing": false
+  },
+  "dataset_settings": {
+    "test_size": 0.2,
+    "random_seed": 42
+  }
+}
